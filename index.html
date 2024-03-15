@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js"></script>
+    <title>Calculadora PHP</title>
+  </head>
+
+  <body
+    style="
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: lightblue;
+    "
+  >
+    <div
+      class="calculator"
+      style="
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: white;
+      "
+    >
+      <div style="text-align: center">Calculadora Web</div>
+      <br />
+      <input
+        type="text"
+        id="display"
+        name="display"
+        value="<?php echo isset($result) ? $result : ''; ?>"
+        disabled
+        style="width: 91%; margin-bottom: 10px; padding: 10px; font-size: 20px"
+      />
+      <div
+        class="buttons"
+        style="
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          grid-gap: 5px;
+        "
+      >
+        <button
+          onclick="calculadora(this)"
+          id="C"
+          value="C"
+          style="
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            background-color: #f0f0f0;
+          "
+        >
+          C
+        </button>
+        <button
+          onclick="calculadora(this)"
+          value="7"
+          id="7"
+          style="
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            background-color: #f0f0f0;
+          "
+        >
+          7
+        </button>
+        <button
+          onclick="calculadora(this)"
+          value="8"
+          id="8"
+          style="
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            background-color: #f0f0f0;
+          "
+        >
+          8
+        </button>
+        <button
+          onclick="calculadora(this)"
+          value="9"
+          id="9"
+          style="
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            background-color: #f0f0f0;
+          "
+        >
+          9
+        </button>
+        <button
+          onclick="calculadora(this)"
+          value="/"
+          id="/"
+          style="
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            background-color: #f0f0f0;
+          "
+        >
+          /
+        </button>
+        <button
+          onclick="calculadora(this)"
+          value="4"
+          id="4"
+          style="
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            background-color: #f0f0f0;
+          "
+        >
+          4
+        </button>
+        <button
+          onclick="calculadora(this)"
+          value="5"
+          id="5"
+          style="
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            background-color: #f0f0f0;
+          "
+        >
+          5
+        </button>
+        <button
+          onclick="calculadora(this)"
+          value="6"
+          id="6"
+          style="
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            background-color: #f0f0f0;
+          "
+        >
+          6
+        </button>
+        <button
+          onclick="calculadora(this)"
+          value="*"
+          id="*"
+          style="
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            background-color: #f0f0f0;
+          "
+        >
+          *
+        </button>
+        <button
+          onclick="calculadora(this)"
+          value="1"
+          id="1"
+          style="
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            background-color: #f0f0f0;
+          "
+        >
+          1
+        </button>
+        <button
+          onclick="calculadora(this)"
+          value="2"
+          id="2"
+          style="
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            background-color: #f0f0f0;
+          "
+        >
+          2
+        </button>
+        <button
+          onclick="calculadora(this)"
+          value="3"
+          id="3"
+          style="
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            background-color: #f0f0f0;
+          "
+        >
+          3
+        </button>
+        <button
+          onclick="calculadora(this)"
+          value="-"
+          id="-"
+          style="
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            background-color: #f0f0f0;
+          "
+        >
+          -
+        </button>
+        <button
+          onclick="calculadora(this)"
+          value="+"
+          id="+"
+          style="
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            background-color: #f0f0f0;
+          "
+        >
+          +
+        </button>
+        <button
+          onclick="calculadora(this)"
+          value="0"
+          id="0"
+          style="
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            background-color: #f0f0f0;
+          "
+        >
+          0
+        </button>
+        <button
+          onclick="calculadora(this)"
+          value="."
+          id="."
+          style="
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            background-color: #f0f0f0;
+          "
+        >
+          .
+        </button>
+        <button
+          onclick="calculadora(this)"
+          value="="
+          id="="
+          style="
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            background-color: #f0f0f0;
+          "
+        >
+          =
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
